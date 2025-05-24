@@ -5,6 +5,10 @@ import os
 from colorama import Fore, Style, init
 init(autoreset=True)
 
+def generate_random_number():
+    return random.randint(1, 100)
+number_to_guess = generate_random_number()
+
 from utils import get_hint
 
 SCORE_FILE = "high_scores.json"
@@ -50,7 +54,7 @@ def save_high_score(level, attempts):
         print(f"🏆 Current High Score for {level}: {best} attempts")
 
 def play_game():
-    number_to_guess = random.randint(1, 100)
+    number_to_guess = generate_random_number()
     level, chances = get_difficulty()
     print(f"\nYou have selected '{level}' difficulty with {chances} chances.\n")
     
